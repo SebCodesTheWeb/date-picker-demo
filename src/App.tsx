@@ -8,6 +8,9 @@ import {
   Stack,
   Form,
   Center,
+  P,
+  Flex,
+  HStack,
 } from '@northlight/ui'
 import { ScreenRecorder } from './screen-recorder'
 import { useState } from 'react'
@@ -89,14 +92,18 @@ function App() {
       <Stack w='2xl' spacing='4' pt='32'>
         {index < questions.length ? (
           <>
+          <P>Please try to select the below date in the date-range-picker and then proceed to the next question</P>
+          <HStack>
+            <P>Question {index +1 }: Select </P>
             <H2>
-              <Badge>{formatQuestion(questions[index])}</Badge>
+              <Badge>{formatQuestion(questions[index])} </Badge>
             </H2>
+          </HStack>
             <Form initialValues={{ date: null }} onSubmit={handleSubmit}>
               <Stack spacing='2'>
                 <DateRangePickerField name='date' label='' />
                 <Button type='submit' variant='success'>
-                  Submit
+                  Next Question
                 </Button>
               </Stack>
             </Form>
