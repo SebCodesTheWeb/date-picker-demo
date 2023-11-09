@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@northlight/icons': ^1.1.2
-  '@northlight/ui': ^2.14.0
+  '@northlight/ui': ^2.14.1
   '@types/react': ^18.2.15
   '@types/react-dom': ^18.2.7
   '@typescript-eslint/eslint-plugin': ^6.0.0
@@ -19,7 +19,7 @@ specifiers:
 
 dependencies:
   '@northlight/icons': 1.1.2
-  '@northlight/ui': 2.14.0_5jw26r2jb4qz4mqxgtyc7qz5z4
+  '@northlight/ui': 2.14.1_5jw26r2jb4qz4mqxgtyc7qz5z4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.18.0_biqbaboplfbrettd7655fr4n2y
@@ -1808,8 +1808,8 @@ packages:
     resolution: {integrity: sha512-heGmsLMBZG/A5XYRBEWVyv+b5ZNcttKjSz3Wb0+d2hu4jbtco1af8qR2zub9qcO1mDXYUGmohmNAde/boS7HBw==}
     dev: false
 
-  /@northlight/ui/2.14.0_5jw26r2jb4qz4mqxgtyc7qz5z4:
-    resolution: {integrity: sha512-w89dHVtCgf/zBwAzPUCUx7Q8Fka4thHW47fhFstskrwTTIRhmvy6rcHieqDwZT4PxfUWw1IzspSZSZC4Kqzkzw==}
+  /@northlight/ui/2.14.1_5jw26r2jb4qz4mqxgtyc7qz5z4:
+    resolution: {integrity: sha512-6inGw03z+iN3O0AHVHu7E6knZOmcyUqiz/UKN3nNjVOEx5vdFd2JdYPxQKLThrVjikA6mCXCJfFrw4X4EZfyxw==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'

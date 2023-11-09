@@ -1,9 +1,10 @@
 import {
-  MediatoolThemeProvider,
+  Badge,
+  H2,
+  useToast,
   DateRangePickerField,
   Box,
   Button,
-  H3,
   Stack,
   Form,
   Center,
@@ -11,13 +12,14 @@ import {
 import { ScreenRecorder } from './screen-recorder'
 import { useState } from 'react'
 import { formatQuestion } from './format-date'
+import SuccessPage from './success-page'
 
 const questions = [
   // Current month
   { startDate: '2023-11-01', endDate: '2023-11-30' },
   // Current year
   { startDate: '2023-01-01', endDate: '2023-12-31' },
-  // Next month
+  // // Next month
   { startDate: '2023-12-01', endDate: '2023-12-31' },
   // Current quarter (Q4 for November)
   { startDate: '2023-10-01', endDate: '2023-12-31' },
@@ -69,9 +71,17 @@ const questions = [
 
 function App() {
   const [index, setIndex] = useState(0)
+  const toast = useToast()
 
   const handleSubmit = (values: any) => {
     const { date } = values
+    if (date === null) {
+      toast({
+        title: '',
+        variant: 'error',
+        description: 'Incorrect Date Range',
+      })
+    }
     if (date) {
       const selectedRange = {
         startDate: date.startDate.toString(),
@@ -83,31 +93,48 @@ function App() {
         selectedRange.endDate === questions[index].endDate
       ) {
         setIndex((currentIndex) => currentIndex + 1)
+        toast({
+          title: 'Success',
+          variant: 'success',
+          description: '',
+        })
       } else {
-        alert('The selected date range is incorrect. Please try again.')
+        toast({
+          title: '',
+          variant: 'error',
+          description: 'Incorrect Date Range',
+        })
       }
     }
   }
 
   return (
-    <MediatoolThemeProvider>
-      <Center w='full' h='full'>
-        <Stack w='2xl' spacing='4' p='10'>
-          <H3>Select range: {formatQuestion(questions[index])}</H3>
-          <Form initialValues={{ date: null }} onSubmit={handleSubmit}>
-            <Stack spacing='2'>
-              <DateRangePickerField name='date' label='' />
-              <Button type='submit' variant='success'>
-                Submit
-              </Button>
-            </Stack>
-          </Form>
-          <Box mt='8' position='absolute' top='0' right='0'>
-            <ScreenRecorder />
-          </Box>
-        </Stack>
-      </Center>
-    </MediatoolThemeProvider>
+    <Center w='full' h='full'>
+      <Stack w='2xl' spacing='4' pt='32'>
+        {index < questions.length ? (
+          <>
+            <H2>
+              <Badge>{formatQuestion(questions[index])}</Badge>
+            </H2>
+            <Form initialValues={{ date: null }} onSubmit={handleSubmit}>
+              <Stack spacing='2'>
+                <DateRangePickerField name='date' label='' />
+                <Button type='submit' variant='success'>
+                  Submit
+                </Button>
+              </Stack>
+            </Form>
+          </>
+        ) : (
+          <>
+            <SuccessPage />
+          </>
+        )}
+        <Box mt='8' position='absolute' top='0' right='0'>
+          <ScreenRecorder />
+        </Box>
+      </Stack>
+    </Center>
   )
 }
 
