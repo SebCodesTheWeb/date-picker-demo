@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@northlight/icons': ^1.1.2
   '@northlight/ui': ^2.14.0
   '@types/react': ^18.2.15
   '@types/react-dom': ^18.2.7
@@ -17,6 +18,7 @@ specifiers:
   vite: ^4.4.5
 
 dependencies:
+  '@northlight/icons': 1.1.2
   '@northlight/ui': 2.14.0_5jw26r2jb4qz4mqxgtyc7qz5z4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
